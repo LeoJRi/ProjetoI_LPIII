@@ -1,0 +1,31 @@
+header{
+    background: #424242;
+    min-height: 60px;
+    position: fixed;
+    top:0;
+    right:0;
+    left: 0;
+    border-bottom: 1px solid #ececec;
+    z-index:2;
+}
+#logo{
+    color:white;
+    width:150px;
+}
+#barraMob{
+    width:80px;
+    color:white;
+    position: relative;
+    
+}
+#sobre{
+    color:white;
+    width: 80px;
+}
+#site{
+    color: white;
+    width: 80px;
+}
+body{
+    background: #616161;
+}
