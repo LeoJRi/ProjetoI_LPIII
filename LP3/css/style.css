@@ -1,0 +1,18 @@
+.barra-navegacao{
+  background-color: #424242;
+  height: 123px;
+  position: absolute;
+}
+.content{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 40px 10px 40px;
+  align-items: center;
+}
+.logo{
+  font-size: 24px;
+}
+
+.loja{
+  font-size: 24px;
+}
