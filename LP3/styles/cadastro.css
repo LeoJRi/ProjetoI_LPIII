@@ -1,0 +1,16 @@
+.cadastro-nome{
+    width: 45%;
+    
+}
+
+.campo-email{
+    width: 45%;
+}
+
+.campo-texto{
+    border: 1px solid #ccc;
+}
+
+h2{
+    font-size: 20px;
+}
