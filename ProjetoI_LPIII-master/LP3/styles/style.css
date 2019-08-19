@@ -1,0 +1,79 @@
+.barra-navegacao{
+    background-color: #424242;
+    margin: -8px;
+    height: 123px;
+    width: 100%;
+    position: absolute;
+}
+
+.content-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 15% 10px 15%;
+    align-items: center;
+    font-family: 'Material';
+}
+
+.logo{
+    font-size: 24px;
+    color: white;
+}
+.content{
+    margin: 0 20% 0 20%;
+}
+
+.body-text{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    line-height: 5px;
+}
+
+.social-icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.face{
+    width: 45px;
+    height: 45px;
+    padding-right: 6px;
+}
+
+.insta{
+    width: 40px;
+    height: 40px;
+}
+
+.twitter{
+    width: 60px;
+    height: 60px; 
+}
+.footer-page{
+    bottom: 0;
+    overflow: hidden;
+}
+.cadastro{
+    color:white;
+}
+.menu-login{
+    margin-top: 20%;
+    margin-left: 40%;
+    margin-right: 60%;
+    background-color: white;
+    width: 25%;
+}
+.usuario{
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+    color: crimson;
+}
+.senha{
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+    color: crimson;
+}
+#pagina-login{
+    background-color: #424242;
+}
