@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../scripts/cadastro.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../styles/cadastro.css" rel="stylesheet">
+    <link href="../styles/style.css" rel="stylesheet">
+    <title>Cadastro RGGI</title>
+</head>
+<body>
+    <div class="content " >
+        <h1 class="titulo-cadastro">Cadastro</h1>
+
+        <h2 class="nome">Nome</h2>
+        <input type="input" class="cadastro-nome campo-texto">
+
+        <h2 class="cadastro-email">Email</h2>
+        <input class="campo-texto campo-email" type="input">
+
+        <h2 class="cadastro-cpf">CPF</h2>
+        <input class="campo-texto campo-cpf" type="input">
+
+        <h2 class="cadastro-data">Data de nascimento</h2>
+        <input class="campo-texto campo-data" type="input" >
+
+        <h2 class="cadastro-cep">CEP</h2>
+        <input class="campo-texto campo-cep" type="input" > <button class="btn-cep">Verificar CEP</button>
+
+        <h2 class="cadastro-rua">Endereço</h2>
+        <input class="campo-texto campo-rua" type="input" >
+
+        <h2 class="cadastro-numero">Número</h2>
+        <input class="campo-texto campo-numero" type="input" >
+        
+        <h2 class="cadastro-complemento">Complemento</h2>
+        <input class="campo-texto campo-complemento" type="input" >
+        
+        <h2 class="cadastro-bairro">Bairro</h2>
+        <input class="campo-texto campo-bairro" type="input" >
+        
+        <h2 class="castro-cidade">Cidade</h2>
+        <input class="campo-texto campo-cidade" type="input" >
+
+        <h2 class="cadastro-estado">Estado</h2>
+        <input class="campo-texto campo-estado" type="input" >
+
+        <br></br>
+        <button type="submit">Enviar</button>
+    </div>
+</body>
+<script>
+    $(".btn-cep").click(function(){
+    var cep = $(".campo-cep").val();
+    $.ajax({
+        method: "GET",
+        url: "https://viacep.com.br/ws/"+ cep + "/json/",
+        success : function(data){
+            $(".campo-rua").val(data.logradouro);
+            $(".campo-bairro").val(data.bairro);
+            $(".campo-complemento").val(data.complemento);
+            $(".campo-cidade").val(data.localidade);
+            $(".campo-estado").val(data.uf);
+        },
+        error : function(){
+            $(".campo-rua").attr('disabled',true);
+            $(".campo-bairro").attr('disabled',true);
+            $(".campo-complemento").attr('disabled',true);
+            $(".campo-cidade").attr('disabled',true);
+            $(".campo-estado").attr('disabled',true);
+        }
+    });
+});
+</script>
+</html>
