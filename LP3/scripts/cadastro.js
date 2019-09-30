@@ -18,4 +18,14 @@ var cep = $(".campo-cep").val();
             $(".campo-estado").attr('disabled',true);
         }
     });
+
+    function validaEmail(email){        
+        let valida = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+        if(email.test(valida)){
+            console.log("email valido");
+        } else{
+            console.log("email invalido");
+        };
+    }
+    
 }

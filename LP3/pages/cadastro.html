@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="../scripts/cadastro.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,25 +11,25 @@
 <body>
     <div class="content " >
         <h1 class="titulo-cadastro">Cadastro</h1>
-
+        
         <h2 class="nome">Nome</h2>
         <input type="input" class="cadastro-nome campo-texto">
-
-        <h2 class="cadastro-email">Email</h2>
-        <input class="campo-texto campo-email" type="input">
-
+        
+        <h2 class="cadastro-email" id="emairu">Email</h2>
+        <input class="campo-texto campo-email" type="input" data-bind="textInput, $data.validaEmail($data)">
+        
         <h2 class="cadastro-cpf">CPF</h2>
         <input class="campo-texto campo-cpf" type="input">
-
+        
         <h2 class="cadastro-data">Data de nascimento</h2>
         <input class="campo-texto campo-data" type="input" >
-
+        
         <h2 class="cadastro-cep">CEP</h2>
         <input class="campo-texto campo-cep" type="input" > <button class="btn-cep" onclick="verificaCep()">Verificar CEP</button>
-
+        
         <h2 class="cadastro-rua">Endereço</h2>
         <input class="campo-texto campo-rua" type="input" >
-
+        
         <h2 class="cadastro-numero">Número</h2>
         <input class="campo-texto campo-numero" type="input" >
         
@@ -43,12 +41,17 @@
         
         <h2 class="castro-cidade">Cidade</h2>
         <input class="campo-texto campo-cidade" type="input" >
-
+        
         <h2 class="cadastro-estado">Estado</h2>
         <input class="campo-texto campo-estado" type="input" >
-
+        
         <br></br>
         <button type="submit">Enviar</button>
     </div>
 </body>
+
+    <script type='text/javascript' src='../scripts/knockout.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../scripts/cadastro.js"></script>
+
 </html>
