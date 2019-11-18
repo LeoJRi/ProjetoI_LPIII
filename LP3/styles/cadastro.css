@@ -1,16 +1,26 @@
-.cadastro-nome{
+.cadastro-nome {
     width: 45%;
     
 }
 
-.campo-email{
+.campo-email {
     width: 45%;
 }
 
-.campo-texto{
+.campo-texto {
     border: 1px solid #ccc;
 }
 
-h2{
+h2 {
     font-size: 20px;
+}
+
+.campos-cadastro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.campo-editavel {
+    width: 50%;
 }
