@@ -16,7 +16,7 @@
             <div class="btn--login">
               <button
                 v-on:click="gerateToken"
-                class="btn waves-effect waves-light red lighten-2"
+                class="waves-effect waves-light btn-small"
                 type="submit"
                 name="action"
               >

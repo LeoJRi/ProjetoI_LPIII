@@ -22,7 +22,7 @@
     <div>Itens: {{cart.totalNumberOfItems}}</div>
     <div>Subtotal: R$ {{formatPrice(cart.subtotal)}}</div>
     <div>Desconto: R$ {{formatPrice(cart.discount)}}</div>
-    <div>Total: R$ {{formatPrice(cart.total)}}</div>
+    <div class="total">Total: R$ {{formatPrice(cart.total)}}</div>
     <a class="waves-effect waves-light btn btnFinal" >Finalizar</a>
   </div>
   </div>
@@ -40,35 +40,35 @@ export default {
     }
   },
   methods: {
-    formatPrice(value) {
-      let val = (value/1).toFixed(2).replace('.', ',')
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+    formatPrice (value) {
+      let val = (value / 1).toFixed(2).replace('.', ',')
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
     },
-    removeFromCart: function(id){
+    removeFromCart: function (id) {
       console.log(id)
       axios.delete('https://floating-sands-83864.herokuapp.com/deleteItem/' + id)
         // JSON responses are automatically parsed.
-          .then(response => {
-           console.log('alou');
-          }).catch(e => {
-            M.toast({html: 'Não foi possivel excluir o endereço.!'})
-          })
-      }
-    },
-    mounted () {
-      axios.get('https://floating-sands-83864.herokuapp.com/cart')
-      // JSON responses are automatically parsed.
         .then(response => {
-          this.cart = response.data;
-          console.log(this.cart);
-          console.log(response.data)
+          console.log('alou')
         }).catch(e => {
-          console.log(e)
+          e.toast({html: 'Não foi possivel excluir o endereço.!'})
         })
     }
+  },
+  mounted () {
+    axios.get('https://floating-sands-83864.herokuapp.com/cart')
+    // JSON responses are automatically parsed.
+      .then(response => {
+        this.cart = response.data
+        console.log(this.cart)
+        console.log(response.data)
+      }).catch(e => {
+        console.log(e)
+      })
   }
+}
 
-  axios.interceptors.request.use(
+axios.interceptors.request.use(
   (config) => {
     let token = localStorage.getItem('session_token')
 
@@ -83,8 +83,6 @@ export default {
     return Promise.reject(error)
   }
 )
-  
-
 
 </script>
 
@@ -93,12 +91,15 @@ export default {
 .resumoCart{
     float: left;
     width: 25%;
-    text-align: left;
+    text-align: center;
     padding: 3px;
     margin-top: 50px;
     margin-left: 40px;
 }
-
+.total{
+  position: relative;
+  left: 70px;
+}
 .resumoCart div{
     width: 50%;
     display: inline-block;
@@ -109,7 +110,7 @@ export default {
 .cart-itens{
     float: left;
     width: 60%;
-    margin-left: 10em;;
+    margin-left: 10em;
 }
 
 .btnFinal{
@@ -117,6 +118,8 @@ export default {
     float: right;
     margin-right: 15px;
     margin-bottom: 15px;
+    text-align: center;
+    right: 88px;
 }
 
 .product-img{
@@ -137,7 +140,7 @@ export default {
 
 .cart-text{
   float: right;
-  margin-right: -150px
+  margin-right: -150px;
 }
 
 .cart-prod-val{

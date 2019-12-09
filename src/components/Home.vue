@@ -13,7 +13,7 @@
     <div class="carousel-inner" role="listbox">
 
       <div class="item active">
-        <img src="../assets/banner_1.png" alt="Chania" width="460" height="345">
+        <img src="" alt="Chania" width="460" height="345">
         <div class="carousel-caption">
           <h3>Bem-Vindo!</h3>
           <p>Conhece nossa Loja Virtual</p>
@@ -21,21 +21,19 @@
       </div>
 
       <div class="item">
-        <img src="../assets/carrossel_1.png" alt="Chania" width="460" height="345">
+        <img src="" alt="Chania" width="460" height="345">
         <div class="carousel-caption">
           <h3>Personalize</h3>
           <p>Use sua criatividade. Customize seus colecionáveis</p>
         </div>
       </div>
-    
       <div class="item">
-        <img src="../assets/carrossel_2.png" alt="Flower" width="460" height="345">
+        <img src="" alt="Flower" width="460" height="345">
         <div class="carousel-caption">
           <h3>Duele</h3>
           <p>Fique por dentro das novidades de novos duelos</p>
         </div>
       </div>
-  
     </div>
 
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -58,14 +56,9 @@
 export default {
   name: 'Home',
   data () {
-    return {
-      
-    } 
-
+    return {}
   }
 }
-
-
 
 </script>
 
@@ -78,4 +71,3 @@ export default {
   }
 
 </style>
-

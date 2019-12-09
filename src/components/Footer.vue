@@ -38,13 +38,16 @@ export default {
 <style lang="less" scoped>
  #footer {
    bottom: 0;
-   background-color: #ee6e73;
+   background-color: lightblue;
    width: 100%;
-   
+   border-color: black;
+   border-width: 1px;
+   position: relative;
+   top:30px;
  }
  .footer_top{
    display: flex;
-   justify-content: space-between;
+   position: relative;
  }
  .social_midia{
    display: flex;
@@ -54,10 +57,11 @@ export default {
    justify-content: center;
    top: 50px;
    margin-left: 30px;
+   width: 300px;
  }
  .twitter{
    position: relative;
-   margin-left: 48%;
+   margin-left: 20px;
  }
  .facebook{
    position: relative;
@@ -68,6 +72,7 @@ export default {
    flex-direction: column;
    position: relative;
    top: 50px;
+   left: 100px;
   }
  .sobre{
    color: white;
@@ -80,11 +85,13 @@ export default {
   .newsletter{
    display: flex;
    flex-direction: column;
+   position: relative;
+   right: 100px;
  }
   .newsletter_input{
     position: relative;
     color: white;
-    top: 50px;
+    top: 30px;
     right: 10px;
   }
   .newsletter_text{
@@ -92,6 +99,7 @@ export default {
     color: white;
     top:50px;
     font-size: 23px;
+    right: 5px;
   }
  .footer_bot{
    display: flex;

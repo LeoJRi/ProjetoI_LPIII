@@ -2,10 +2,10 @@
   <div id="myaccount">
     <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
       <li class="tab">
-        <a href="#profile" class="active">Perfil</a>
+        <a href="#profile" class="active profile">Perfil</a>
       </li>
       <li class="tab">
-        <a href="#address">Endereços</a>
+        <a href="#addres" class="adress">Endereços</a>
       </li>
     </ul>
 
@@ -356,7 +356,12 @@ export default {
     display: flex;
     justify-content: center;
   }
-
+  .profile{
+    color: lightblue;
+  }
+  .adress{
+    color: lightblue;
+  }
   .icon-person {
     font-size: 60px;
     color: #ff0000;
@@ -383,7 +388,7 @@ export default {
         position: relative;
         padding: 20px;
         border-radius: 8px;
-        border: 1px solid #ee6e73;
+        border: 1px solid #ADD8E6;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -415,7 +420,7 @@ export default {
           &--edit {
           }
           &--delete {
-            color: red;
+            color: #ADD8E6;
           }
         }
       }
