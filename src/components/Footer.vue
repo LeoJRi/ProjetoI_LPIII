@@ -3,7 +3,7 @@
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                <p><a href="!#" class="grey-text text-lighten-4">Sobre nós</a></p>
+                <p><router-link to="/about" id="fSobre">Sobre nós</router-link></p>
                 <a href="!#" class="grey-text text-lighten-4">Fale conosco</a>
               </div>
               <div class="col l4 offset-l2 s12">
@@ -48,7 +48,8 @@ body {
   }
   footer{
     width: 100%;
-    background-color: green;
+    background-color: #cc0000;
+    margin-top: 5%;
   }
 
   .ficon{
@@ -59,8 +60,8 @@ body {
     display: inline-block;
   }
 
-  body{
-    height: 100%;
+  #fSobre{
+    color: white;
   }
 
 </style>

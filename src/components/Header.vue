@@ -3,7 +3,7 @@
     <nav class="header-content header-content--top">
       <div>
         <router-link to="/home" class="brand-logo">
-          <img href="../assets/logorggi.png" class="logo">RGGI Cards
+          <img href="../assets/twitterlogo.png" class="logo">RGGI Cards
         </router-link>
       </div>
       <div class="nav-wrapper header">
@@ -29,7 +29,7 @@
           </li>
 
           <li>
-            <router-link to="/cart">Carrninho</router-link>
+            <router-link to="/cart">Carrinho</router-link>
           </li>
         </ul>
       </div>
@@ -134,7 +134,7 @@ export default {
     align-items: center;
     padding: 0 20px;
     box-shadow: none;
-    background-color: green;
+    background-color: #cc0000;
 
     &--top {
       justify-content: space-between;

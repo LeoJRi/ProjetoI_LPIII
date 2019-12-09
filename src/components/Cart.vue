@@ -1,5 +1,5 @@
 <template>
-  <div class="all-cart">
+  <div id="#carrito" class="all-cart">
     <div class="cart-itens container">
       <ul>
       <i class="cart-icon small material-icons">shopping_cart</i>
@@ -119,6 +119,7 @@ axios.interceptors.request.use(
 
 .product-img{
   max-width: 80px;
+  min-width: 80px;
   margin-left: 45px;
   margin-right: 45px;
 }
@@ -135,7 +136,8 @@ axios.interceptors.request.use(
 
 .cart-text{
   float: right;
-  margin-right: -150px
+  margin-right: -150px;
+  width: 470px;
 }
 
 .cart-prod-val{
@@ -158,5 +160,10 @@ axios.interceptors.request.use(
   margin-left: 193px;
   margin-right: -330px;
   margin-top: 40px;
+}
+
+#carrito{
+  width: 100%;
+  height: 100%;
 }
 </style>

@@ -48,7 +48,7 @@
           <input id="password" type="password" class="validate">
           <label for="password">Senha</label>
         </div>
-        <a class="waves-effect waves-light btn btnCadastro" >Cadastrar</a>
+        <a class="waves-effect waves-light btn btnCadastro">Cadastrar</a>
       </form>
     </div>
   </div>
@@ -58,17 +58,19 @@
 // import axios from 'axios'
 import $ from 'jquery'
 
-$(document).ready(function () {
-  $('.datepicker').datepicker()
-})
-$(document).ready(function () {
-  $('select').formSelect()
-})
 export default {
   name: 'Register',
   data () {
     return {
     }
+  },
+  mounted () {
+    $(document).ready(function () {
+      $('.datepicker').datepicker()
+    })
+    $(document).ready(function () {
+      $('select').formSelect()
+    })
   }
 }
 </script>
@@ -77,5 +79,6 @@ export default {
 <style lang="less" scoped>
 .btnCadastro{
   float: right;
+  background-color: #cc0000;
 }
 </style>
