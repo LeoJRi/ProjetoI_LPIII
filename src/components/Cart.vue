@@ -40,35 +40,35 @@ export default {
     }
   },
   methods: {
-    formatPrice(value) {
-      let val = (value/1).toFixed(2).replace('.', ',')
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+    formatPrice (value) {
+      let val = (value / 1).toFixed(2).replace('.', ',')
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
     },
-    removeFromCart: function(id){
+    removeFromCart: function (id) {
       console.log(id)
       axios.delete('https://floating-sands-83864.herokuapp.com/deleteItem/' + id)
         // JSON responses are automatically parsed.
-          .then(response => {
-           console.log('alou');
-          }).catch(e => {
-            M.toast({html: 'Não foi possivel excluir o endereço.!'})
-          })
-      }
-    },
-    mounted () {
-      axios.get('https://floating-sands-83864.herokuapp.com/cart')
-      // JSON responses are automatically parsed.
         .then(response => {
-          this.cart = response.data;
-          console.log(this.cart);
-          console.log(response.data)
+          console.log('alou')
         }).catch(e => {
-          console.log(e)
+          e.toast({html: 'Não foi possivel excluir o endereço.!'})
         })
     }
+  },
+  mounted () {
+    axios.get('https://floating-sands-83864.herokuapp.com/cart')
+      // JSON responses are automatically parsed.
+      .then(response => {
+        this.cart = response.data
+        console.log(this.cart)
+        console.log(response.data)
+      }).catch(e => {
+        console.log(e)
+      })
   }
+}
 
-  axios.interceptors.request.use(
+axios.interceptors.request.use(
   (config) => {
     let token = localStorage.getItem('session_token')
 
@@ -83,8 +83,6 @@ export default {
     return Promise.reject(error)
   }
 )
-  
-
 
 </script>
 

@@ -1,26 +1,27 @@
 <template>
-   <div id="footer">
-      <div class="footer_top">
-         <div class="info">
-            <a href="#!" class="sobre">Sobre nós</a>
-            <a href="#!" class="fale">Fale conosco</a>
-         </div>
-         <div class="social_midia">
-            <a href="#!"><img src="../assets/facebooklogo.png"  width="50px" height="50px" class="facebook"></a>
-            <a href="#!"><img src="../assets/instagramlogo.png" width="50px" height="50px" clas="instagram"></a>
-            <a href="#!"><img src="../assets/twitterlogo.png"  width="50px" height="50px" class="twitter"></a>
-         </div>
-         <div class="newsletter">
-            <p class="newsletter_text">Newsletter</p>
-            <input class="newsletter_input">
-         </div>
-      </div>
-      <div class="footer_bot">
-         <div class="footer-copyright">
-            <p class="direitos">RGGI CARDS© TODOS OS DIREITOS RESERVADOS</p>
-         </div>
-      </div>
-   </div>
+      <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <p><a href="!#" class="grey-text text-lighten-4">Sobre nós</a></p>
+                <a href="!#" class="grey-text text-lighten-4">Fale conosco</a>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Redes Sociais</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3 facebook" href="#!"><img class="ficon" src="../assets/facebooklogo.png" ></a></li>
+                  <li><a class="grey-text text-lighten-3 twitter" href="#!"><img class="ficon" src="../assets/twitterlogo.png" ></a></li>
+                  <li><a class="grey-text text-lighten-3 insta" href="#!"><img class="ficon" src="../assets/instagramlogo.png" ></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2019 RGGI Cards
+            </div>
+          </div>
+        </footer>
 </template>
 <script>
 // import axios from "axios";
@@ -36,74 +37,30 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
- #footer {
-   bottom: 0;
-   background-color: #ee6e73;
-   width: 100%;
-   
- }
- .footer_top{
-   display: flex;
-   justify-content: space-between;
- }
- .social_midia{
-   display: flex;
-   position:relative;
-   flex-direction: row;
-   flex-grow: 1;
-   justify-content: center;
-   top: 50px;
-   margin-left: 30px;
- }
- .twitter{
-   position: relative;
-   margin-left: 48%;
- }
- .facebook{
-   position: relative;
-   margin-right: 20px;
- }
- .info{
-   display: flex;
-   flex-direction: column;
-   position: relative;
-   top: 50px;
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
   }
- .sobre{
-   color: white;
-   font-size: 23px;
- }
-  .fale{
-   color: white;
-   font-size: 23px;
- }
-  .newsletter{
-   display: flex;
-   flex-direction: column;
- }
-  .newsletter_input{
-    position: relative;
-    color: white;
-    top: 50px;
-    right: 10px;
+
+  main {
+    flex: 1 0 auto;
   }
-  .newsletter_text{
-    position: relative;
-    color: white;
-    top:50px;
-    font-size: 23px;
+  footer{
+    width: 100%;
+    background-color: green;
   }
- .footer_bot{
-   display: flex;
-   justify-content: center;
- }
- .direitos{
-   position: relative;
-   color: white;
- }
-  a:link, a:visited, a:active {
-  text-decoration:none;}
-  a:hover {
-  color: white;
- }
+
+  .ficon{
+    max-width: 50px;
+  }
+
+  footer li{
+    display: inline-block;
+  }
+
+  body{
+    height: 100%;
+  }
+
 </style>

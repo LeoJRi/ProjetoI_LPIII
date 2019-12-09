@@ -1,51 +1,10 @@
 <template>
 <body>
   <div class="container">
-  <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <div class="carousel-inner" role="listbox">
-
-      <div class="item active">
-        <img src="../assets/banner_1.png" alt="Chania" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Bem-Vindo!</h3>
-          <p>Conhece nossa Loja Virtual</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="../assets/carrossel_1.png" alt="Chania" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Personalize</h3>
-          <p>Use sua criatividade. Customize seus colecionáveis</p>
-        </div>
-      </div>
-    
-      <div class="item">
-        <img src="../assets/carrossel_2.png" alt="Flower" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Duele</h3>
-          <p>Fique por dentro das novidades de novos duelos</p>
-        </div>
-      </div>
-  
-    </div>
-
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+   <div class="carousel">
+    <a class="carousel-item" href="#one!"><img src="../assets/banner_1.png"></a>
+    <a class="carousel-item" href="#two!"><img src="../assets/carrossel_1.png"></a>
+    <a class="carousel-item" href="#three!"><img src="../assets/carrossel_2.png"></a>
   </div>
 </div>
 
@@ -54,18 +13,18 @@
 
 <script>
 // import axios from "axios";
-
+import $ from 'jquery'
+$(document).ready(function () {
+  $('.carousel').carousel()
+})
 export default {
   name: 'Home',
   data () {
     return {
-      
-    } 
 
+    }
   }
 }
-
-
 
 </script>
 
@@ -73,9 +32,19 @@ export default {
 <style lang="less" scoped>
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-    width: 80%;
-    margin: auto;
+    width: 400px;
+    height: 400px;
   }
+.carousel{
+  width: 900px;
+  margin-left: -218px;
+  height: 600px;
+  margin-bottom: 100px;
+  margin-left: -305px;
+}
+.carousel .carousel-item > img {
+  width: 400px;
+  height: 400px;
+}
 
 </style>
-
