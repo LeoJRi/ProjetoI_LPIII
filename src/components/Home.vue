@@ -1,81 +1,123 @@
 <template>
-<body>
+<div id="home" >
+  <div class="banner">
+    <img class="banner__image" src="https://picjumbo.com/wp-content/uploads/lago-di-braies-italy-2210x1473.jpg">
+    <h4 class="banner__text">Conheça nosso site e <br>se impressione com as ofertas!</h4>
+  </div>
   <div class="container">
-  <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <div class="carousel-inner" role="listbox">
-
-      <div class="item active">
-        <img src="../assets/banner_1.png" alt="Chania" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Bem-Vindo!</h3>
-          <p>Conhece nossa Loja Virtual</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="../assets/carrossel_1.png" alt="Chania" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Personalize</h3>
-          <p>Use sua criatividade. Customize seus colecionáveis</p>
-        </div>
-      </div>
-    
-      <div class="item">
-        <img src="../assets/carrossel_2.png" alt="Flower" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Duele</h3>
-          <p>Fique por dentro das novidades de novos duelos</p>
-        </div>
-      </div>
-  
+    <div class="product__title"><b>Novos Produtos</b></div>
+    <div class="carousel" >
+      <a class="carousel-item" v-for="item in news" :key="item._id" href="#"><img v-bind:src="item.images[0].url"></a>
     </div>
-
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    <div class="product__title"><b>Veja Nossos Produtos Mais Vendidos</b></div>
+    <div class="bestsellers">
+      <div v-for="item in bestsellers" :key="item._id">
+        <div class="card bestsellers__card__area">
+          <div class="card-image bestsellers__card__area--image">
+            <img style="text-align: center" class="card__image--bestseller" v-bind:src="item.images[0].url">
+          </div>
+          <div class="bestsellers__card__area--text">
+            <div style="text-align: center"> {{item.description}} </div>
+            <div style="text-align: center"> {{item.salePrice}} <strong> R$</strong> </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-</body>
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
+import $ from "jquery";
 
 export default {
   name: 'Home',
   data () {
     return {
-      
+      news:{},
+      bestsellers:{}
     } 
-
+  },
+  mounted: function () {
+      this.initializeCarousel()
+      axios.get('https://floating-sands-83864.herokuapp.com/products/bestsellers')
+      // JSON responses are automatically parsed.
+      .then(response => {
+        this.bestsellers = response.data;
+      }).catch(e => {
+        console.log(e)
+      })
+      
+      axios.get('https://floating-sands-83864.herokuapp.com/products/news')
+      // JSON responses are automatically parsed.
+      .then(response => {
+        this.news = response.data;
+        console.log(this.news);
+      }).catch(e => {
+        console.log(e)
+      })
+  },
+  methods: {
+    initializeCarousel: function(){
+      $(document).ready(function(){
+        $('.carousel').carousel({
+          fullWidth: true,
+          indicators: true
+        });
+      })
+    } 
   }
 }
 
-
-
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
-.carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-    width: 80%;
-    margin: auto;
+#home {
+  width: 100%;
+  height: 100% !important;
+}
+.banner{
+  margin-bottom: 20px;
+  &__image{
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: center;
   }
-
+  &__text{
+    position: absolute;
+    color: #fff;
+    top: 170px;
+    left: 30px;
+  }
+}
+.container{
+  .product__title{
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  .bestsellers{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &__card__area{
+      margin: 5px;
+      height: 300px;
+      &--image{
+        margin: 0 auto;
+        max-width: 200px;
+        .card__image--bestseller{
+          margin-top: 5px;
+          max-height: 200px;
+        }
+      }
+      &--text{
+        margin: 5px 0;
+        width: 250px;
+      }
+    }
+  }
+}
 </style>
-

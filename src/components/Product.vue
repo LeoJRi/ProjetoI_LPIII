@@ -59,21 +59,21 @@ export default {
   },
   mounted: function () {
     this.getproduct()
-      .then(response => {
-        console.log(response.data)
-        var data = response.data
-        this.product_title = data.description
-        this.product_price = data.listPrice
-        this.product_image = data.images[0].url
-        this.product_stock = data.stock
-        this.product_detail = data.longDescription
-        this.product_promotion = data.salePrice
-        setTimeout(function () {
-          M.updateTextFields()
-        }, 200)
-      }).catch(e => {
-        console.log(e)
-      })
+    .then(response => {
+      console.log(response.data)
+      var data = response.data
+      this.product_title = data.description
+      this.product_price = data.listPrice
+      this.product_image = data.images[0].url
+      this.product_stock = data.stock
+      this.product_detail = data.longDescription
+      this.product_promotion = data.salePrice
+      setTimeout(function () {
+        M.updateTextFields()
+      }, 200)
+    }).catch(e => {
+      console.log(e)
+    })
   },
   watch: {
     '$route.params.productId': function (id) {

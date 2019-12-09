@@ -1,5 +1,5 @@
 <template>
-  <div class="all-cart">
+  <div id="cart" class="all-cart">
     <div class="cart-itens container">
       <ul>
       <i class="cart-icon small material-icons">shopping_cart</i>
@@ -48,13 +48,12 @@ export default {
       console.log(id)
       axios.delete('https://floating-sands-83864.herokuapp.com/deleteItem/' + id)
         // JSON responses are automatically parsed.
-          .then(response => {
-           console.log('alou');
-          }).catch(e => {
-            M.toast({html: 'Não foi possivel excluir o endereço.!'})
-          })
-      }
-    },
+      .then(response => {
+      }).catch(e => {
+        M.toast({html: 'Não foi possivel excluir o endereço.!'})
+      })
+    }
+  },
     mounted () {
       axios.get('https://floating-sands-83864.herokuapp.com/cart')
       // JSON responses are automatically parsed.
@@ -90,6 +89,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+#cart{
+  width: 100%;
+  height: 100%;
+}
 .resumoCart{
     float: left;
     width: 25%;

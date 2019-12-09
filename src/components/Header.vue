@@ -29,7 +29,7 @@
           </li>
 
           <li>
-            <router-link to="/cart">Carrninho</router-link>
+            <router-link to="/cart">Carrinho</router-link>
           </li>
         </ul>
       </div>

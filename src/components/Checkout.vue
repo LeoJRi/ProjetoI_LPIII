@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="checkout">
   <div class="divTabs">
     <i class="fas fa-cash-register"></i><h2 class="checkoutTitle">Checkout</h2>
     <div class="row container">
@@ -38,6 +38,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+#checkout{
+  width: 100%;
+  height: 100%;
+}
 .divTabs{
     float: left;
     width: 60%;

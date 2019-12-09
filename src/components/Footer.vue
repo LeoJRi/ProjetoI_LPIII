@@ -37,10 +37,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
  #footer {
-   bottom: 0;
    background-color: #ee6e73;
    width: 100%;
-   
  }
  .footer_top{
    display: flex;
@@ -48,7 +46,6 @@ export default {
  }
  .social_midia{
    display: flex;
-   position:relative;
    flex-direction: row;
    flex-grow: 1;
    justify-content: center;
@@ -56,17 +53,14 @@ export default {
    margin-left: 30px;
  }
  .twitter{
-   position: relative;
    margin-left: 48%;
  }
  .facebook{
-   position: relative;
    margin-right: 20px;
  }
  .info{
    display: flex;
    flex-direction: column;
-   position: relative;
    top: 50px;
   }
  .sobre{
@@ -82,13 +76,11 @@ export default {
    flex-direction: column;
  }
   .newsletter_input{
-    position: relative;
     color: white;
     top: 50px;
     right: 10px;
   }
   .newsletter_text{
-    position: relative;
     color: white;
     top:50px;
     font-size: 23px;
@@ -98,7 +90,6 @@ export default {
    justify-content: center;
  }
  .direitos{
-   position: relative;
    color: white;
  }
   a:link, a:visited, a:active {
