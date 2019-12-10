@@ -30,6 +30,9 @@
 <script>
 import axios from "axios";
 import $ from "jquery";
+$(document).ready(function(){
+  $('.carousel').carousel();
+})
 
 export default {
   name: 'Home',
@@ -40,7 +43,6 @@ export default {
     } 
   },
   mounted: function () {
-      this.initializeCarousel()
       axios.get('https://floating-sands-83864.herokuapp.com/products/bestsellers')
       // JSON responses are automatically parsed.
       .then(response => {
@@ -57,16 +59,6 @@ export default {
       }).catch(e => {
         console.log(e)
       })
-  },
-  methods: {
-    initializeCarousel: function(){
-      $(document).ready(function(){
-        $('.carousel').carousel({
-          fullWidth: true,
-          indicators: true
-        });
-      })
-    } 
   }
 }
 
@@ -102,6 +94,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 70px;
     &__card__area{
       margin: 5px;
       height: 300px;

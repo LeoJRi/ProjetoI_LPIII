@@ -39,10 +39,13 @@ export default {
  #footer {
    background-color: #ee6e73;
    width: 100%;
+   position: fixed;
+   bottom: 0;
  }
  .footer_top{
    display: flex;
    justify-content: space-between;
+   height: 40px;
  }
  .social_midia{
    display: flex;
@@ -77,8 +80,8 @@ export default {
  }
   .newsletter_input{
     color: white;
-    top: 50px;
     right: 10px;
+    margin-top: -15px;
   }
   .newsletter_text{
     color: white;
