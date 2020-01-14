@@ -1,81 +1,148 @@
 <template>
-<body>
-  <div class="container">
-  <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <div class="carousel-inner" role="listbox">
-
-      <div class="item active">
-        <img src="../assets/banner_1.png" alt="Chania" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Bem-Vindo!</h3>
-          <p>Conhece nossa Loja Virtual</p>
+<div id="home">
+    <div class="container">
+        <div class="carousel">
+            <a class="carousel-item" href="#one!"><img src="../assets/banner_1.png"></a>
+            <a class="carousel-item" href="#two!"><img src="../assets/carrossel_1.png"></a>
+            <a class="carousel-item" href="#three!"><img src="../assets/carrossel_2.png"></a>
         </div>
-      </div>
 
-      <div class="item">
-        <img src="../assets/carrossel_1.png" alt="Chania" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Personalize</h3>
-          <p>Use sua criatividade. Customize seus colecionáveis</p>
+        <!-- bestsellers -->
+        <div class="section">
+            <div class="row">
+                <div class="col s12"><span class="flow-text">Mais vendidos</span>
+                    <div class="row6" v-for="item in bestsellers" :key="item._id">
+                        <div class="col s4 m3 center">
+                            <div class="card small">
+                                <div style="text-align: center"> {{item.description}} </div>
+                                <div class="card-image">
+                                    <img v-bind:src="item.images[0].url">
+                                </div>
+                                <div class="card-content">
+                                </div>
+                                <div class="card-action center-align">
+                                  <strong>R$ </strong> {{item.salePrice}}
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <!-- news -->
+                <div class="section">
+                    <div class="row">
+                        <div class="col s12"><span class="flow-text">Novos Produtos</span>
+                            <div class="row6" v-for="item in news" :key="item._id">
+                                <div class="col s4 m3 center">
+                                    <div class="card small">
+                                        <div style="text-align: center"> {{item.description}} </div>
+                                        <div class="card-image">
+                                            <img v-bind:src="item.images[0].url">
+                                        </div>
+                                        <div class="card-content">
+                                        </div>
+                                        <div class="card-action center-align">
+                                          <strong>R$ </strong> {{item.salePrice}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    
-      <div class="item">
-        <img src="../assets/carrossel_2.png" alt="Flower" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Duele</h3>
-          <p>Fique por dentro das novidades de novos duelos</p>
-        </div>
-      </div>
-  
     </div>
-
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
-
-</body>
 </template>
 
 <script>
-// import axios from "axios";
+import axios from 'axios'
+import $ from 'jquery'
 
 export default {
   name: 'Home',
   data () {
     return {
-      
-    } 
+      selecteItemId: '',
+      bestsellers: {},
+      news: {}
+    }
+  },
+  mounted () {
+    $(document).ready(function () {
+      $('.carousel').carousel()
+    })
+    // bestsellers
+    axios.get('https://floating-sands-83864.herokuapp.com/products/bestsellers')
+      // JSON responses are automatically parsed.
+      .then(response => {
+        this.bestsellers = response.data
+        console.log(this.bestsellers)
+        console.log(response.data)
+      }).catch(e => {
+        console.log(e)
+      })
 
+    // news
+    axios.get('https://floating-sands-83864.herokuapp.com/products/news')
+      // JSON responses are automatically parsed.
+      .then(response => {
+        this.news = response.data
+        console.log(this.news)
+        console.log(response.data)
+      }).catch(e => {
+        console.log(e)
+      })
   }
 }
+axios.interceptors.request.use(
+  (config) => {
+    let token = localStorage.getItem('session_token')
 
+    if (token) {
+      config.headers['x-access-token'] = token
+    }
 
+    return config
+  },
 
+  (error) => {
+    return Promise.reject(error)
+  }
+)
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-    width: 80%;
-    margin: auto;
+    width: 400px;
+    height: 400px;
   }
+.carousel{
+  width: 900px;
+  height: 600px;
+  margin-bottom: 100px;
+  margin-left: initial;
+}
+.carousel .carousel-item > img {
+  width: 400px;
+  height: 400px;
+}
+
+#home{
+  width: 100%;
+  height: 100%;
+  margin-bottom: 150%;
+}
+.product-img{
+  max-width: 150px;
+}
+
+.card-content{
+  margin-top: 50px;
+}
 
 </style>
-

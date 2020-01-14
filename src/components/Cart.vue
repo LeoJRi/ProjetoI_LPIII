@@ -1,5 +1,5 @@
 <template>
-  <div class="all-cart">
+  <div id="#carrito" class="all-cart">
     <div class="cart-itens container">
       <ul>
       <i class="cart-icon small material-icons">shopping_cart</i>
@@ -40,35 +40,35 @@ export default {
     }
   },
   methods: {
-    formatPrice(value) {
-      let val = (value/1).toFixed(2).replace('.', ',')
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+    formatPrice (value) {
+      let val = (value / 1).toFixed(2).replace('.', ',')
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
     },
-    removeFromCart: function(id){
+    removeFromCart: function (id) {
       console.log(id)
       axios.delete('https://floating-sands-83864.herokuapp.com/deleteItem/' + id)
         // JSON responses are automatically parsed.
-          .then(response => {
-           console.log('alou');
-          }).catch(e => {
-            M.toast({html: 'Não foi possivel excluir o endereço.!'})
-          })
-      }
-    },
-    mounted () {
-      axios.get('https://floating-sands-83864.herokuapp.com/cart')
-      // JSON responses are automatically parsed.
         .then(response => {
-          this.cart = response.data;
-          console.log(this.cart);
-          console.log(response.data)
+          console.log('alou')
         }).catch(e => {
-          console.log(e)
+          e.toast({html: 'Não foi possivel excluir o endereço.!'})
         })
     }
+  },
+  mounted () {
+    axios.get('https://floating-sands-83864.herokuapp.com/cart')
+      // JSON responses are automatically parsed.
+      .then(response => {
+        this.cart = response.data
+        console.log(this.cart)
+        console.log(response.data)
+      }).catch(e => {
+        console.log(e)
+      })
   }
+}
 
-  axios.interceptors.request.use(
+axios.interceptors.request.use(
   (config) => {
     let token = localStorage.getItem('session_token')
 
@@ -83,8 +83,6 @@ export default {
     return Promise.reject(error)
   }
 )
-  
-
 
 </script>
 
@@ -121,6 +119,7 @@ export default {
 
 .product-img{
   max-width: 80px;
+  min-width: 80px;
   margin-left: 45px;
   margin-right: 45px;
 }
@@ -137,7 +136,8 @@ export default {
 
 .cart-text{
   float: right;
-  margin-right: -150px
+  margin-right: -150px;
+  width: 470px;
 }
 
 .cart-prod-val{
@@ -160,5 +160,10 @@ export default {
   margin-left: 193px;
   margin-right: -330px;
   margin-top: 40px;
+}
+
+#carrito{
+  width: 100%;
+  height: 100%;
 }
 </style>

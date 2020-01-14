@@ -86,30 +86,31 @@ export default {
     getproduct: function () {
       axios.get('https://floating-sands-83864.herokuapp.com/product/' + this.productId)
       // JSON responses are automatically parsed.
-      .then(response => {
-        this.json = response
-        console.log(response.data)
-        var data = response.data
-        this.product_title = data.description
-        this.product_price = data.listPrice
-        this.product_image = data.images[0].url
-        this.product_stock = data.stock
-        this.product_detail = data.longDescription
-        this.product_promotion = data.salePrice
-        setTimeout(function () {
-          M.updateTextFields()
-        }, 200)
-      }).catch(e => {
-        console.log(e)
-      })
+        .then(response => {
+          this.json = response
+          console.log(response.data)
+          var data = response.data
+          this.product_title = data.description
+          this.product_price = data.listPrice
+          this.product_image = data.images[0].url
+          this.product_stock = data.stock
+          this.product_detail = data.longDescription
+          this.product_promotion = data.salePrice
+          setTimeout(function () {
+            M.updateTextFields()
+          }, 200)
+        }).catch(e => {
+          console.log(e)
+        })
     },
-    postproduct: function() {
+    postproduct: function () {
       axios.post('https://floating-sands-83864.herokuapp.com/cart/additem',
         {
           productId: this.productId,
           quantity: this.quantity
         }
-      )}
+      )
+    }
   }
 }
 </script>
