@@ -3,7 +3,7 @@
     <nav class="header-content header-content--top">
       <div>
         <router-link to="/home" class="brand-logo">
-          <i class="material-icons">cloud</i>Logo
+          <img href="../assets/twitterlogo.png" class="logo">RGGI Cards
         </router-link>
       </div>
       <div class="nav-wrapper header">
@@ -134,6 +134,7 @@ export default {
     align-items: center;
     padding: 0 20px;
     box-shadow: none;
+    background-color: #cc0000;
 
     &--top {
       justify-content: space-between;
